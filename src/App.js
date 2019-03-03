@@ -3,6 +3,40 @@ import logo from './logo.svg';
 import './App.css';
 
 const giphy = 'https://api.giphy.com/v1/gifs/search?api_key=K9654qRl1lOrwllarrPZp3AfCOCuXZsH&limit=1&q=meme ';
+const tenor = 'https://api.tenor.com/v1/search?key=9T5XLH0PXOSB&limit=1&q=meme ';
+
+class TenorGifs extends Component {
+  componentWillReceiveProps(newProps) {
+    setTimeout(() => {
+      var url = tenor + newProps.meme
+      fetch(url)
+      .then(results => {
+        return results.json()
+      }).then(data => {
+        console.log(data)
+        let imgUrl = data.results[0].media[0].gif.url
+        this.setState({url: imgUrl, loading: false, data: data})
+      })
+    }, 500)
+    this.setState({loading: true})
+  }
+
+  render() {
+    console.log(this)
+    if (this.state && !this.state.loading) {
+      return (
+        <div>
+          <img src={this.state.url} />
+        </div>
+      )
+    } else {
+      return (
+        <div>Loading...</div>
+      )
+    }
+  }
+}
+
 
 class GifShow extends Component {
 
@@ -68,6 +102,7 @@ class App extends Component {
         <header className="App-header">
         <GifShow meme={this.state.meme} />
         <InputBox func={this.onEdit.bind(this)} />
+        <TenorGifs meme={this.state.meme} />
         </header>
       </div>
     );
