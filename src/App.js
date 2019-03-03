@@ -25,13 +25,10 @@ class TenorGifs extends Component {
     console.log(this)
     if (this.state && !this.state.loading) {
       return (
-        <div>
-          <img src={this.state.url} />
-        </div>
+        <img src={this.state.url} className="col-lg-6 col-md-6 col-sm-12" />
       )
     } else {
-      return (
-        <div>Loading...</div>
+      return (null
       )
     }
   }
@@ -59,13 +56,10 @@ class GifShow extends Component {
     console.log(this)
     if (this.state && !this.state.loading) {
       return (
-        <div>
-          <img src={this.state.url} />
-        </div>
+        <img src={this.state.url} className="col-lg-6 col-md-6 col-sm-12" />
       )
     } else {
-      return (
-        <div>Loading...</div>
+      return (null
       )
     }
   }
@@ -100,9 +94,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-        <GifShow meme={this.state.meme} />
+        <div className="row" style={{display: 'flow-root'}}>
+          <GifShow meme={this.state.meme} />
+          <TenorGifs meme={this.state.meme} />
+        </div>
         <InputBox func={this.onEdit.bind(this)} />
-        <TenorGifs meme={this.state.meme} />
         </header>
       </div>
     );
