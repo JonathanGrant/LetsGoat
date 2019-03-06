@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const giphy = 'https://api.giphy.com/v1/gifs/search?api_key=K9654qRl1lOrwllarrPZp3AfCOCuXZsH&limit=1&q=meme ';
-const tenor = 'https://api.tenor.com/v1/search?key=9T5XLH0PXOSB&limit=1&q=meme ';
+const giphy = 'https://api.giphy.com/v1/gifs/search?api_key=K9654qRl1lOrwllarrPZp3AfCOCuXZsH&limit=1&q=';
+const tenor = 'https://api.tenor.com/v1/search?key=9T5XLH0PXOSB&limit=1&q=';
 
 class TenorGifs extends Component {
   componentWillReceiveProps(newProps) {
     setTimeout(() => {
-      var url = tenor + newProps.meme
+      var url = tenor + newProps.name + ' ' + newProps.meme
       fetch(url)
       .then(results => {
         return results.json()
@@ -39,7 +39,7 @@ class GifShow extends Component {
 
   componentWillReceiveProps(newProps) {
     setTimeout(() => {
-      var url = giphy + newProps.meme
+      var url = giphy + newProps.name + ' ' + newProps.meme
       fetch(url)
       .then(results => {
         return results.json()
@@ -95,8 +95,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
         <div className="row" style={{display: 'flow-root'}}>
-          <GifShow meme={this.state.meme} />
-          <TenorGifs meme={this.state.meme} />
+          <GifShow meme={this.state.meme} name={this.props.match? this.props.match.params.name : 'goat'} />
+          <TenorGifs meme={this.state.meme} name={this.props.match? this.props.match.params.name : 'goat'} />
         </div>
         <InputBox func={this.onEdit.bind(this)} />
         </header>
