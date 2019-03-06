@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/LetsGoat/static/js/runtime~main.62394ade.js"
   },
   {
-    "revision": "8e0a0841c003a3641521",
-    "url": "/LetsGoat/static/js/main.8e0a0841.chunk.js"
+    "revision": "ed4ae003597f4e3523aa",
+    "url": "/LetsGoat/static/js/main.ed4ae003.chunk.js"
   },
   {
     "revision": "2e156327cc8a60cc0475",
     "url": "/LetsGoat/static/js/2.2e156327.chunk.js"
   },
   {
-    "revision": "8e0a0841c003a3641521",
+    "revision": "ed4ae003597f4e3523aa",
     "url": "/LetsGoat/static/css/main.47882f27.chunk.css"
   },
   {
-    "revision": "78eca91fc92903b608327a5694d9346f",
+    "revision": "878740454f5872940813caee3992b934",
     "url": "/LetsGoat/index.html"
   }
 ];
